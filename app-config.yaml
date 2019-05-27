@@ -27,7 +27,7 @@ fasitResources:
   used:
   - alias: loadbalancer:nightking
     resourceType: loadbalancerconfig
-  - alias: srvnightking
+  - alias: srvveilarbarena
     resourceType: credential
   - alias: appdynamics
     resourceType: applicationproperties
