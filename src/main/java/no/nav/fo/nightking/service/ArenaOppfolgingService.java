@@ -11,12 +11,14 @@ import no.nav.tjeneste.virksomhet.oppfoelgingsstatus.v2.meldinger.HentOppfoelgin
 import no.nav.tjeneste.virksomhet.oppfoelgingsstatus.v2.meldinger.HentOppfoelgingsstatusResponse;
 import no.nav.tjeneste.virksomhet.oppfoelgingsstatus.v2.informasjon.Person;
 import org.slf4j.Logger;
+import org.springframework.cache.annotation.Cacheable;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import static no.nav.fo.nightking.config.CacheConfig.ARENA;
 import static no.nav.metrics.MetricsFactory.getMeterRegistry;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -31,6 +33,7 @@ public class ArenaOppfolgingService {
         counter = Counter.builder("nightking.kall_mot_arena_oppfolging").register(getMeterRegistry());
     }
 
+    @Cacheable(cacheNames = ARENA, sync = true)
     public ArenaOppfolging hentArenaOppfolging(String identifikator) {
         return getArenaOppfolgingsstatus(identifikator);
     }
