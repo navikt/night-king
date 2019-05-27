@@ -31,12 +31,15 @@ fasitResources:
     resourceType: credential
   - alias: appdynamics
     resourceType: applicationproperties
-  - alias: securityTokenService
-    resourceType: baseUrl
+
+  # external services
   - alias: abac.pdp.endpoint
     resourceType: restservice
+  - alias: virksomhet:Oppfoelgingsstatus_v2
+    resourceType: webserviceendpoint
 
-  # ISSO
+
+  # security
   - alias: isso-host
     resourceType: baseurl
   - alias: isso-jwks
@@ -49,6 +52,9 @@ fasitResources:
     resourceType: credential
   - alias: veilarblogin.redirect-url
     resourceType: restservice
+  - alias: securityTokenService
+    resourceType: baseUrl
+
 
   exposed:
   - alias: nightkingAPI

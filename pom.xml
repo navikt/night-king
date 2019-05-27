@@ -15,6 +15,12 @@
     <version>1</version>
     <packaging>war</packaging>
 
+
+    <properties>
+        <tjenestespesifikasjoner.version>1.2019.04.03-23.09-56488320520a</tjenestespesifikasjoner.version>
+    </properties>
+
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -23,6 +29,11 @@
                 <version>${project.parent.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>no.nav.tjenestespesifikasjoner</groupId>
+                <artifactId>nav-oppfoelgingsstatus-v2-tjenestespesifikasjon</artifactId>
+                <version>${tjenestespesifikasjoner.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -65,6 +76,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+        <dependency>
+            <groupId>no.nav.tjenestespesifikasjoner</groupId>
+            <artifactId>nav-oppfoelgingsstatus-v2-tjenestespesifikasjon</artifactId>
+        </dependency>
+
 
 
         <!-- test -->
