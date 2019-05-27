@@ -17,9 +17,10 @@ import static no.nav.sbl.util.EnvironmentUtils.getRequiredProperty;
 import static no.nav.sbl.util.EnvironmentUtils.setProperty;
 
 public class TestContext {
-    private static final String SERVICE_USER_ALIAS = "srvveilarbvedtakinfo";
+    private static final String SERVICE_USER_ALIAS = "srvnightking";
     private static final String VEILARBLOGIN_REDIRECT_URL_ALIAS = "veilarblogin.redirect-url";
     private static final String SECURITY_TOKEN_SERVICE_ALIAS = "securityTokenService";
+    private static final String ABAC_PDP_ENDPOINT_ALIAS = "abac.pdp.endpoint";
 
 
     public static void setupSecurity() {
@@ -45,6 +46,7 @@ public class TestContext {
 
     public static void setup() {
         setupSecurity();
+        setProperty(ABAC_ENDPOINT_URL_PROPERTY_NAME, getRestService(ABAC_PDP_ENDPOINT_ALIAS, getDefaultEnvironment()).getUrl());
         setProperty(Constants.OIDC_REDIRECT_URL_PROPERTY_NAME, getRequiredProperty(VEILARBLOGIN_REDIRECT_URL_URL_PROPERTY));
     }
 }

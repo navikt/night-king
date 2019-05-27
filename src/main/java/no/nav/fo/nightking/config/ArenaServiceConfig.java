@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.UUID;
 
+import static no.nav.sbl.dialogarena.common.cxf.InstanceSwitcher.createMetricsProxyWithInstanceSwitcher;
 import static no.nav.sbl.dialogarena.types.Pingable.Ping.feilet;
 import static no.nav.sbl.dialogarena.types.Pingable.Ping.lyktes;
 import static no.nav.sbl.util.EnvironmentUtils.getRequiredProperty;
@@ -22,6 +23,15 @@ public class ArenaServiceConfig {
     public static final String VIRKSOMHET_OPPFOELGINGSSTATUS_V2_PROPERTY = "VIRKSOMHET_OPPFOELGINGSSTATUS_V2_ENDPOINTURL";
 
     private static final Logger LOG = getLogger(ArenaServiceConfig.class);
+
+
+    @Bean
+    public OppfoelgingsstatusV2 oppfoelgingsstatusV2() {
+        OppfoelgingsstatusV2 prod = oppfoelgingstatusV2PortType()
+                .configureStsForSubject()
+                .build();
+        return prod;
+    }
 
     public static CXFClient<OppfoelgingsstatusV2> oppfoelgingstatusV2PortType() {
         final String url = getRequiredProperty(VIRKSOMHET_OPPFOELGINGSSTATUS_V2_PROPERTY);

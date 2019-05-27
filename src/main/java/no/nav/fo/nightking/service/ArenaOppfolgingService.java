@@ -16,7 +16,6 @@ import org.springframework.cache.annotation.Cacheable;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import static no.nav.fo.nightking.config.CacheConfig.ARENA;
 import static no.nav.metrics.MetricsFactory.getMeterRegistry;

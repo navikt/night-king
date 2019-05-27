@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import({
-    ArenaServiceConfig.class,
-    ServiceConfig.class,
-    PepConfig.class
+        PepConfig.class,
+        ArenaServiceConfig.class,
+        ServiceConfig.class,
 })
 public class ApplicationConfig implements ApiApplication {
     public static final String APPLICATION_NAME = "nightking";
@@ -19,7 +19,6 @@ public class ApplicationConfig implements ApiApplication {
     public void configure(ApiAppConfigurator apiAppConfigurator) {
         apiAppConfigurator
                 .sts()
-                .azureADB2CLogin()
                 .issoLogin();
     }
 
