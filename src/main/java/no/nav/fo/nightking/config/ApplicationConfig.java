@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import({
+        CacheConfig.class,
         PepConfig.class,
         ArenaServiceConfig.class,
         ServiceConfig.class,
