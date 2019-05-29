@@ -65,3 +65,5 @@ fasitResources:
     path: /nightking/api
 alertProfiles:
   - common-java-modules
+
+webproxy: true
