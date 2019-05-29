@@ -6,6 +6,7 @@ import no.nav.sbl.dialogarena.common.abac.pep.CredentialConstants;
 import static java.lang.System.setProperty;
 import static no.nav.brukerdialog.security.Constants.*;
 import static no.nav.brukerdialog.security.oidc.provider.AzureADB2CConfig.AZUREAD_B2C_DISCOVERY_URL_PROPERTY_NAME;
+import static no.nav.brukerdialog.security.oidc.provider.AzureADB2CConfig.AZUREAD_B2C_EXPECTED_AUDIENCE_PROPERTY_NAME;
 import static no.nav.fasit.FasitUtils.Zone.FSS;
 import static no.nav.fasit.FasitUtils.*;
 import static no.nav.fo.nightking.config.ApplicationConfig.APPLICATION_NAME;
@@ -42,6 +43,10 @@ public class TestContext {
         setProperty(ISSO_ISSUER_URL_PROPERTY_NAME, getBaseUrl("isso-issuer"), PUBLIC);
         setProperty(ISSO_ISALIVE_URL_PROPERTY_NAME, getBaseUrl("isso.isalive", FasitUtils.Zone.FSS), PUBLIC);
         setProperty(VEILARBLOGIN_REDIRECT_URL_URL_PROPERTY, loginUrl, PUBLIC);
+
+        ServiceUser azureADClientId = FasitUtils.getServiceUser("aad_b2c_clientid", APPLICATION_NAME);
+        setProperty(AZUREAD_B2C_DISCOVERY_URL_PROPERTY_NAME, FasitUtils.getBaseUrl("aad_b2c_discovery"));
+        setProperty(AZUREAD_B2C_EXPECTED_AUDIENCE_PROPERTY_NAME, azureADClientId.username);
     }
 
     public static void setup() {

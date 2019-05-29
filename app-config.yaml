@@ -54,7 +54,10 @@ fasitResources:
     resourceType: restservice
   - alias: securityTokenService
     resourceType: baseUrl
-
+  - alias: aad_b2c_clientid
+    resourceType: credential
+  - alias: aad_b2c_discovery
+    resourceType: baseurl
 
   exposed:
   - alias: nightkingAPI
