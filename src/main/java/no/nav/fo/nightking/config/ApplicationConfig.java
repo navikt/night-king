@@ -20,7 +20,8 @@ public class ApplicationConfig implements ApiApplication {
     public void configure(ApiAppConfigurator apiAppConfigurator) {
         apiAppConfigurator
                 .sts()
-                .issoLogin();
+                .issoLogin()
+                .azureADB2CLogin();
     }
 
 }
