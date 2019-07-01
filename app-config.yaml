@@ -2,7 +2,7 @@
 image: docker.adeo.no:5000/fo/nightking
 team: bos
 replicas:
-  min: 1
+  min: 2
   max: 2
   cpuThresholdPercentage: 50
 port: 8080
